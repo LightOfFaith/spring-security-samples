@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head(title=~{::title},links=~{})">
+<title>Create</title>
+</head>
+<body th:include="layout :: body" th:with="content=~{::content}">
+	<div th:fragment="content">
+		<div class="container">
+			<h1>
+				User : <span th:text="${users.realname}"></span>
+			</h1>
+			<dl>
+				<dt>ID</dt>
+				<dd id="id" th:text="${users.id}"></dd>
+				<dt>Date</dt>
+				<dd id="created" th:text="${#calendars.format(users.gmtCreate)}"></dd>
+				<dt>Nickname</dt>
+				<dd id="text" th:text="${users.nickname}"></dd>
+			</dl>
+		</div>
+	</div>
+</body>
+</html>
